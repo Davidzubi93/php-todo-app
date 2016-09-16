@@ -1,5 +1,6 @@
 <?php
-$conex=mysql_connect((conexion.php));
+include(conexion.php);
+session_start();
 $usuario=$_POST['usuario'];
 $password=$_POST['password'];
 
