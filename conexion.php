@@ -19,6 +19,5 @@
     } 
     echo "Connected successfully (".$db->host_info.")";
     
-    //redireccionar a login.php
-    header("location: login.php");
+ 
 ?>
