@@ -1,18 +1,20 @@
 <?php
-include "conexion.php";
-
+require_once("conexion.php");
 $usuario=$_POST['usuario'];
 $password=$_POST['password'];
 
 //select usuario
-$queryusuario = "SELECT * FROM usuario where nombre_usu='$usuario' and password='$password'";
-$resultadousu= $mysqli->query($queryusuario);
+$sqlusuario = "SELECT * FROM usuarios where username=$usuario and password=$password";
+$resultadousu = mysql_query($db,$sqlusuario);
+
+$resultadousu->data_seek(0);
 
 
 
 
-while ($lerroa = mysql_fetch_array($resultadousu)){
-        echo  $lerroa["nombre_usu"]."";
+
+while ($lerroa = $resultadousu -> mysql_fetch_asocc()){
+        echo "ID".$lerroa["ID"]." - Nombre: " .$lerroa["nombre_usu"]."";
     }
 
 
