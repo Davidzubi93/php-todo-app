@@ -10,7 +10,7 @@
     $dbport = 3306;
 
     // Create connection
-    $db = new mysqli($servername, $username, $password, $database, $dbport);
+    $db = mysql_close($servename,$username,$password,$database,$dbport);
 
     // Check connection
     if ($db->connect_error) {
