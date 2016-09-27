@@ -2,7 +2,7 @@
 require_once("mostrarlistas.php");
 
 //mostrar todas las listas
-foreach ($resultado as $resultado){
+foreach ($result as $resultado){
     print $resultado['ID']."-" . $resultado['nombre'] . "<br/>";
 }
 ?>
