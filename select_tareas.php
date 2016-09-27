@@ -16,6 +16,10 @@ try {
     
     $listas_tareas->execute();
     $resultado= $listas_tareas->fetchAll(PDO::FETCH_ASSOC);
+    
+    foreach($resultado as $tareas) {
+        print $tareas['tareasID'] . "-" .$tareas['tareasNombre']. "<br/>";
+    }
 }catch (PDOException $e) {
     print "Error!: " . $e->getMessage() . "<br/>";
     die();
