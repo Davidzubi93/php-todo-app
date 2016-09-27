@@ -11,7 +11,7 @@ try {
         $listas_tareas = $dbh->prepare('SELECT listas.ID as listaID, listas.nombre as listaNombre, tareas.ID as tareasID, tareas.nombre as tareasNombre
             FROM listas, tareas WHERE listas.ID = tareas.ID_listas AND listas.ID = :listaId');
         
-        $listas_tareas->bindParam('listaId', $listaId);    
+        $listas_tareas->bindParam(':listaId', $listaId);    
     }
     
     $listas_tareas->execute();
