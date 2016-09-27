@@ -26,7 +26,7 @@ CREATE TABLE `listas` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(25) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35,6 +35,7 @@ CREATE TABLE `listas` (
 
 LOCK TABLES `listas` WRITE;
 /*!40000 ALTER TABLE `listas` DISABLE KEYS */;
+INSERT INTO `listas` VALUES (1,'Leche'),(2,'azucar');
 /*!40000 ALTER TABLE `listas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -54,7 +55,7 @@ CREATE TABLE `tareas` (
   PRIMARY KEY (`ID`),
   KEY `ID_listas` (`ID_listas`),
   CONSTRAINT `tareas_listas` FOREIGN KEY (`ID_listas`) REFERENCES `listas` (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -63,6 +64,7 @@ CREATE TABLE `tareas` (
 
 LOCK TABLES `tareas` WRITE;
 /*!40000 ALTER TABLE `tareas` DISABLE KEYS */;
+INSERT INTO `tareas` VALUES (1,'Leche entera','Comprar Leche entera',0,1),(2,'azucar','azucar moreno',0,2);
 /*!40000 ALTER TABLE `tareas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -109,8 +111,8 @@ CREATE TABLE `usuarios_listas` (
   PRIMARY KEY (`ID`),
   KEY `ID_usuarios` (`ID_usuarios`),
   KEY `ID_listas` (`ID_listas`),
-  CONSTRAINT `usuarios_listas_1` FOREIGN KEY (`ID_usuarios`) REFERENCES `usuarios` (`ID`),
-  CONSTRAINT `usuarios_listas_2` FOREIGN KEY (`ID_listas`) REFERENCES `listas` (`ID`)
+  CONSTRAINT `usuarios_listas_1` FOREIGN KEY (`ID_usuarios`) REFERENCES `usuarios` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `usuarios_listas_2` FOREIGN KEY (`ID_listas`) REFERENCES `listas` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -132,4 +134,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-21  6:51:47
+-- Dump completed on 2016-09-27  7:31:32
