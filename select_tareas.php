@@ -1,22 +1,24 @@
 <?php
-include("conexion.php");
+require_once("conexion.php");
 
-//hacer la consulta
-$result = mysql_query("SELECT * FROM tareas ORDER BY ID");
-
-//mostrar el resultado
-echo "<table";
-echo "<tr>";
-echo "<th>Nombre</th>";
-echo "<th>Descripcion</th>";
-echo "<th>Hecho</th>";
-echo "</tr>";
-//recorrer el array y mostrar los datos en la tabla
-while ($lerroa= mysql_fetch_row($result)){   
-    echo "<tr>";  
-    echo "<td>$lerroa[0]></td>";  
-    echo "</tr>";  
-}  
-echo "</table>";
+try {
+    $listaId = filter_input(INPUT_GET, 'listaId', FILTER_VALIDATE_INT);
+    
+    if(empty($listaId)) {
+        $listas_tareas = $dbh->prepare('SELECT listas.ID as listaID, listas.nombre as listaNombre, tareas.ID as tareasID, tareas.nombre as tareasNombre
+            FROM listas, tareas WHERE listas.ID = tareas.ID_listas');
+    } else {
+        $listas_tareas = $dbh->prepare('SELECT listas.ID as listaID, listas.nombre as listaNombre, tareas.ID as tareasID, tareas.nombre as tareasNombre
+            FROM listas, tareas WHERE listas.ID = tareas.ID_listas AND listas.ID = :listaId');
+        
+        $listas_tareas->bindParam('listaId', $listaId);    
+    }
+    
+    $listas_tareas->execute();
+    $resultado= $listas_tareas->fetchAll(PDO::FETCH_ASSOC);
+}catch (PDOException $e) {
+    print "Error!: " . $e->getMessage() . "<br/>";
+    die();
+}
 
 ?>
