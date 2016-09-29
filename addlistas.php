@@ -7,8 +7,7 @@ try {
    
     
     $lista_nombre= $_POST['nombre'];
-    $Lista_descripcion= $_POST['descripcion'];
-    $listas= $dbh->prepare("INSERT INTO listas (ID, nombre, descripcion) VALUES ($listaId, $lista_nombre,$Lista_descripcion)");
+    $listas= $dbh->prepare("INSERT INTO listas (ID, nombre) VALUES ($listaId, $lista_nombre)");
     }
     
     $listas->execute();
