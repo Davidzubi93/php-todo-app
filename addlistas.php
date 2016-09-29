@@ -7,15 +7,15 @@ try {
    
     
     $lista_nombre= $_POST['nombre'];
-    
-    $listas= $add->prepare("INSERT INTO listas (ID, nombre) VALUES ($listaId, $lista_nombre)");
+    $Lista_descripcion= $_POST['descripcion'];
+    $listas= $dbh->prepare("INSERT INTO listas (ID, nombre, descripcion) VALUES ($listaId, $lista_nombre,$Lista_descripcion)");
     }
     
     $listas->execute();
     
     //mostrar el mensaje que aparecera en json una vez insertada la lista
     $mensajejson = [
-        "mensaje" => "La lista esta añadida"];
+        "mensaje" => "La lista se ha agregado"];
     header('Content-Type: application/json');
     echo json_encode($mensajejson);
 }catch (Exception $e){
