@@ -2,13 +2,10 @@
 require_once("conexion.php");
 try {
     $listaId = filter_input(INPUT_POST, 'listaId', FILTER_VALIDATE_INT);
-    if (!$listaId){
-        
-   
     
     $lista_nombre= $_POST['nombre'];
     $listas= $dbh->prepare("INSERT INTO listas (ID, nombre) VALUES ($listaId, $lista_nombre)");
-    }
+
     
     $listas->execute();
     
