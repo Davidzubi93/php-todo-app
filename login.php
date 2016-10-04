@@ -2,7 +2,7 @@
 include ("conexion.php");
 $usuario=$_POST['usuario'];
 
-$select_usuarios = "SELECT password from usuarios WHERE usuario=$usuario";
+$select_usuarios = "SELECT password from usuarios WHERE username=$usuario";
 $datos_select=mysql_query($select_usuarios);
 
 session_start();
