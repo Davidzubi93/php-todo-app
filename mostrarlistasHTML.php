@@ -12,8 +12,9 @@ foreach ($result as $resultado){
     print "<tr>";
     print "<td>".$resultado['ID']."</td>";
     print "<td>".$resultado['nombre']."</td>";
-    print "<td><a href='select_tareas.php'>Mostrar contenido</a><br/><a href='addlistas.php'>Add lista</a></td>";
+    print "<td><a href='select_tareas.php'>Mostrar contenido</a><br/><a href='delete_listas.php'>Eliminar lista</a></td>";
     print "</tr>";
 }
 print "</table>";
+print "<a href='addlistas.php'>Add lista</a>";
 ?>
