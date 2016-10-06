@@ -35,7 +35,7 @@ CREATE TABLE `listas` (
 
 LOCK TABLES `listas` WRITE;
 /*!40000 ALTER TABLE `listas` DISABLE KEYS */;
-INSERT INTO `listas` VALUES (1,'Leche'),(2,'azucar');
+INSERT INTO `listas` VALUES (1,'Erosketa zerrenda'),(2,'Etxeko lanak');
 /*!40000 ALTER TABLE `listas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -134,4 +134,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-27  7:31:32
+-- Dump completed on 2016-10-06  9:10:39
