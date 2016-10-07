@@ -16,5 +16,5 @@ foreach ($result as $resultado){
     print "</tr>";
 }
 print "</table>";
-print "<a href='addlistas.php'>Add lista</a>";
+print "<a href='addlistasHTML.php'>Add lista</a>";
 ?>
