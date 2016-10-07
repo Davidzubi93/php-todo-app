@@ -31,6 +31,7 @@ try {
         print "</tr>";
     }
     print "</table>";
+    print "<a href='addtareahtml.php'>Add tarea</a>";
 }catch (PDOException $e) {
     print "Error!: " . $e->getMessage() . "<br/>";
     die();
