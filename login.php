@@ -2,6 +2,12 @@
 include ("conexion.php");
 $usuario=$_POST['usuario'];
 $password=$_POST['password'];
+        $bad_strings = array("\b", "\0", "\n", "\r", "\t", "\z",
+		     "/n", "/0", "/n", "/r", "/t", "/z",
+		     "$", "'", '"', "%", ";", "_", "*", 
+		     "`", "drop table");
+		$usuario = str_replace($bad_strings, "", $usuario); //Avoid SQL Injection
+		$password = str_replace($bad_strings, "",$password); //Avoid SQL Injection
 $select_usuarios = "SELECT password from usuarios WHERE username='".$usuario."' and password='".$password."'";
 $datos_select=mysql_query($select_usuarios,$db);
 
